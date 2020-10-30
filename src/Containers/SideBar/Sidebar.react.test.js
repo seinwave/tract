@@ -1,5 +1,5 @@
 import React from 'react';
-import Sidebar from './Sidebar'
+import Sidebar from './Sidebar.js'
 import renderer from 'react-test-renderer'
 
 it('renders as expected', () => {
