@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected 1`] = `
+<div
+  className="topbar"
+>
+  <nav
+    className="navbar navbar-expand-lg navbar-light"
+  >
+    <img
+      alt="tract-logo"
+      className="topbar-logo-image"
+      src="https://1000logos.net/wp-content/uploads/2017/11/Chipotle-Logo.png"
+    />
+    <a
+      className="navbar-brand"
+      href="www.mattseidholz.com/"
+    >
+      Tract
+    </a>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarSupportedContent"
+    />
+    <div
+      className="avatar-dropdown-button dropdown"
+      onKeyDown={[Function]}
+    >
+      <button
+        aria-expanded={false}
+        aria-haspopup={true}
+        className="dropdown-toggle btn btn-primary"
+        disabled={false}
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Avatarimage"
+          className="topbar-avatar-image"
+          src="https://cdn.iconscout.com/icon/free/png-256/avatar-375-456327.png"
+        />
+         
+        Hi, USER
+      </button>
+    </div>
+  </nav>
+</div>
+`;

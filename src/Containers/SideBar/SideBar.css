@@ -1,0 +1,29 @@
+
+.sidebar{
+    position: fixed; 
+}
+
+#sidebar-wrapper {
+    margin-top: 1.5rem;
+    min-height: 100vh !important;
+    width: 100vw;
+    margin-left: 1rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+    border-right: 1px solid #e4e9f0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 10%;
+    max-width: 10%;
+}
+
+#page-content-wrapper {
+    min-width:0;
+    width:80%
+}
+
+.navlink-span{
+    display: block;
+}

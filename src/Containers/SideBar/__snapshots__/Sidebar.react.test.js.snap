@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected 1`] = `
+<div
+  className="sidebar flex-column nav"
+  onKeyDown={[Function]}
+>
+  <div
+    className="navlink-span"
+  >
+    <div
+      className="testNavChild"
+    >
+      Item
+    </div>
+  </div>
+  <div
+    className="navlink-span"
+  >
+    <div
+      className="testNavChild2"
+    >
+      Item2
+    </div>
+  </div>
+</div>
+`;
