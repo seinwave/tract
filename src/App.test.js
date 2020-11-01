@@ -10,11 +10,10 @@ describe("state and context tests", () => {
     expect(DataContext).not.toBeNull();
   });
 
-  test("Data successfully fetched", async () => {
+  test("fetch function works", async () => {
     const projects = [{ name: "Belize" }];
     const resp = { data: projects };
     axios.get.mockResolvedValue(resp);
-
     return fetchData().then((data) => expect(data).toEqual(resp));
   });
 });

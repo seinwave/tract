@@ -14,7 +14,7 @@ const TabbedFinancialChart = () => {
           <Tabs defaultActiveKey="net">
             <Tab eventKey="revenue" title="Revenue">
               <div>
-                <MonthlyRevenueChart gross ={data[0].revenue} name={data[0].name} />
+                <MonthlyRevenueChart gross ={data.expenses[0].amount} name={data.expenses[0].vendor} data={data.expenses} />
               </div>
             </Tab>
             <Tab eventKey="expenses" title="Expenses">

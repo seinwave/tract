@@ -34,8 +34,8 @@ function Layout() {
                 activeStyle={{ color: "red", fontWeight: "bold" }}
               >
                 {" "}
-               
-                  <span className="nav-title">Home </span><span className="fa fa-home menu-icon"></span>
+                <span className="nav-title">Home </span>
+                <span className="fa fa-home menu-icon"></span>
               </NavLink>
 
               <NavLink
@@ -43,7 +43,8 @@ function Layout() {
                 to="/financials"
                 activeStyle={{ color: "red", fontWeight: "bold" }}
               >
-                <span className="nav-title">Financials </span><span className="fa fa-dollar menu-icon"></span>
+                <span className="nav-title">Financials </span>
+                <span className="fa fa-dollar menu-icon"></span>
               </NavLink>
               <NavLink
                 className="nav-item"
