@@ -58,7 +58,7 @@ exports[`renders as expected 1`] = `
     </div>
   </div>
   <div
-    className="row"
+    className="body-row row"
   >
     <div
       className="sidebar-wrapper-col col"
@@ -94,16 +94,12 @@ exports[`renders as expected 1`] = `
           <a
             aria-current={null}
             className="nav-item"
-            href="/financials"
+            href="/team"
             onClick={[Function]}
           >
-            <span
-              className="nav-title"
-            >
-              Financials 
-            </span>
-            <span
-              className="fa fa-dollar menu-icon"
+            Team 
+            <i
+              className="fa fa-cog"
             />
           </a>
         </div>
@@ -143,12 +139,16 @@ exports[`renders as expected 1`] = `
           <a
             aria-current={null}
             className="nav-item"
-            href="/team"
+            href="/financials"
             onClick={[Function]}
           >
-            Team 
-            <i
-              className="fa fa-cog"
+            <span
+              className="nav-title"
+            >
+              Financials 
+            </span>
+            <span
+              className="fa fa-dollar menu-icon"
             />
           </a>
         </div>
