@@ -14,7 +14,7 @@ import {
   NavLink,
   Switch,
 } from "react-router-dom";
-import "./Layout.css";
+import "./Layout.scss";
 
 function Layout() {
   return (
@@ -25,7 +25,7 @@ function Layout() {
             <TopBar />
           </Col>
         </Row>
-        <Row>
+        <Row className="body-row">
           <Col className="sidebar-wrapper-col" id="sidebar-wrapper">
             <SideBar>
               <NavLink
@@ -37,14 +37,12 @@ function Layout() {
                 <span className="nav-title">Home </span>
                 <span className="fa fa-home menu-icon"></span>
               </NavLink>
-
               <NavLink
                 className="nav-item"
-                to="/financials"
+                to="/team"
                 activeStyle={{ color: "red", fontWeight: "bold" }}
               >
-                <span className="nav-title">Financials </span>
-                <span className="fa fa-dollar menu-icon"></span>
+                Team <i className="fa fa-cog"></i>
               </NavLink>
               <NavLink
                 className="nav-item"
@@ -62,11 +60,13 @@ function Layout() {
               </NavLink>
               <NavLink
                 className="nav-item"
-                to="/team"
+                to="/financials"
                 activeStyle={{ color: "red", fontWeight: "bold" }}
               >
-                Team <i className="fa fa-cog"></i>
+                <span className="nav-title">Financials </span>
+                <span className="fa fa-dollar menu-icon"></span>
               </NavLink>
+              
               <div class="h-divider"></div>
               <NavLink
                 className="nav-item"

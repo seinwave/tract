@@ -1,5 +1,5 @@
 import React from "react";
-import "./SideBar.css";
+import "./SideBar.scss";
 import Nav from "react-bootstrap/Nav";
 import { v4 as uuidv4 } from "uuid";
 

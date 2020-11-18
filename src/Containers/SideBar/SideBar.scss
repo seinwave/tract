@@ -1,11 +1,14 @@
 
 .sidebar{
-    position: fixed; 
+    position: fixed;
+    font-size: 20px;
+    background: #fff;
 }
 
 #sidebar-wrapper {
     margin-top: 1.5rem;
     min-height: 100vh !important;
+    background: #fff;
     width: 100vw;
     margin-left: 1rem;
     -webkit-transition: margin .25s ease-out;
