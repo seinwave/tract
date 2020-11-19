@@ -5,13 +5,23 @@ import { v4 as uuidv4 } from "uuid";
 
 function SideBar({ children }) {
   return (
-    <Nav defaultActiveKey="/home" className="sidebar flex-column">
-      {children.map((c) => (
-        <div key={uuidv4()} className="navlink-span">
-          {c}
-        </div>
-      ))}
-    </Nav>
+    <div className="sidebar">
+      <img
+        src="https://1000logos.net/wp-content/uploads/2017/11/Chipotle-Logo.png"
+        alt="tract-logo"
+        className="topbar-logo-image"
+      />
+      <a className="navbar-brand" href="www.mattseidholz.com/">
+        Tract
+      </a>
+      <Nav defaultActiveKey="/home" className="flex-column">
+        {children.map((c) => (
+          <div key={uuidv4()} className="navlink-span">
+            {c}
+          </div>
+        ))}
+      </Nav>
+    </div>
   );
 }
 

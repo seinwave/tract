@@ -6,14 +6,6 @@ function TopBar() {
   return (
     <div className="topbar">
       <nav className="navbar navbar-expand-lg navbar-light">
-        <img
-          src="https://1000logos.net/wp-content/uploads/2017/11/Chipotle-Logo.png"
-          alt="tract-logo"
-          className="topbar-logo-image"
-        />
-        <a className="navbar-brand" href="www.mattseidholz.com/">
-          Tract
-        </a>
         <div
           className="collapse navbar-collapse"
           id="navbarSupportedContent"

@@ -1,13 +1,16 @@
+.topbar {
+    background: #fff;
+    margin-bottom: 2rem;
+}
+
 .topbar-logo-image {
     height: 40px;
 }
 .topbar-wrapper {
-    background-color: #fff
+    background-color: #fff;
+    margin-bottom: 2rem;
 }
 
-.navbar{
-    border-bottom: .5px solid #e4e9f0;
-}
 
 .avatar-dropdown-button button {
     background-color: transparent;

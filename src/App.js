@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "./Containers/Layout/Layout";
+import PageLayout from "./Containers/Layout/PageLayout";
 import axios from "axios";
 import "./App.scss";
 import MonthlyExpensesChart from "./Components/Widgets/MonthlyExpensesChart/MonthlyExpensesChart";
@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
       <DataContext.Provider value={expenses}>
-        <Layout />
+        <PageLayout />
       </DataContext.Provider>
     </div>
   );
