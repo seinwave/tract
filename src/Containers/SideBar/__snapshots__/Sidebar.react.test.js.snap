@@ -2,25 +2,40 @@
 
 exports[`renders as expected 1`] = `
 <div
-  className="sidebar flex-column nav"
-  onKeyDown={[Function]}
+  className="sidebar"
 >
+  <img
+    alt="tract-logo"
+    className="topbar-logo-image"
+    src="https://1000logos.net/wp-content/uploads/2017/11/Chipotle-Logo.png"
+  />
+  <a
+    className="navbar-brand"
+    href="www.mattseidholz.com/"
+  >
+    Tract
+  </a>
   <div
-    className="navlink-span"
+    className="flex-column nav"
+    onKeyDown={[Function]}
   >
     <div
-      className="testNavChild"
+      className="navlink-span"
     >
-      Item
+      <div
+        className="testNavChild"
+      >
+        Item
+      </div>
     </div>
-  </div>
-  <div
-    className="navlink-span"
-  >
     <div
-      className="testNavChild2"
+      className="navlink-span"
     >
-      Item2
+      <div
+        className="testNavChild2"
+      >
+        Item2
+      </div>
     </div>
   </div>
 </div>

@@ -7,17 +7,6 @@ exports[`renders as expected 1`] = `
   <nav
     className="navbar navbar-expand-lg navbar-light"
   >
-    <img
-      alt="tract-logo"
-      className="topbar-logo-image"
-      src="https://1000logos.net/wp-content/uploads/2017/11/Chipotle-Logo.png"
-    />
-    <a
-      className="navbar-brand"
-      href="www.mattseidholz.com/"
-    >
-      Tract
-    </a>
     <div
       className="collapse navbar-collapse"
       id="navbarSupportedContent"
