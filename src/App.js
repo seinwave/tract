@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import PageLayout from "./Containers/Layout/PageLayout";
 import axios from "axios";
 import "./App.scss";
-import MonthlyExpensesChart from "./Components/Widgets/MonthlyExpensesChart/MonthlyExpensesChart";
 
 const DataContext = React.createContext();
 const fetchData = async (url) => {
@@ -10,9 +9,11 @@ const fetchData = async (url) => {
 };
 
 function App() {
-  const [expenses, setExpenses] = useState({
-  });
- 
+  const [expenses, setExpenses] = useState({});
+  const [team, setTeam] = useState({});
+  const [projects, setProjects] = useState({});
+  const [tickets, setTickets] = useState({});
+
 
   useEffect(() => {
     fetchData("http://localhost:3001/expenses").then((resp) =>
@@ -20,11 +21,27 @@ function App() {
     );
   }, []);
 
-  console.log(expenses);
+  useEffect(() => {
+    fetchData("http://localhost:3001/users").then((resp) =>
+      setTeam(resp.data)
+    );
+  }, []);
+
+  useEffect(() => {
+    fetchData("http://localhost:3001/projects").then((resp) =>
+      setProjects(resp.data)
+    );
+  }, []);
+
+  useEffect(() => {
+    fetchData("http://localhost:3001/tickets").then((resp) =>
+      setTickets(resp.data)
+    );
+  }, []);
 
   return (
     <div>
-      <DataContext.Provider value={expenses}>
+      <DataContext.Provider value={{expenses, team, projects, tickets}}>
         <PageLayout />
       </DataContext.Provider>
     </div>

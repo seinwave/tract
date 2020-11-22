@@ -27,7 +27,6 @@ import "./PageLayout.scss";
 import "antd/dist/antd.css";
 
 const { Header, Footer, Sider, Content } = Layout;
-const { SubMenu } = Menu;
 
 function PageLayout() {
   const [collapsed, setCollapsed] = useState(false);
@@ -43,6 +42,8 @@ function PageLayout() {
           <Sider
             theme="light"
             collapsible
+            // breakpoint="lg"
+            // collapsedWidth="0"
             collapsed={collapsed}
             onCollapse={onCollapse}
             style={{
@@ -55,11 +56,11 @@ function PageLayout() {
             <div className="logoContainer">
               <div className="logo">
                 <img
-                  src="src/images/logo192.png"
-                  className="mr-2"
-                  alt="Clean UI"
+                  src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/1200px-Chipotle_Mexican_Grill_logo.svg.png"
+                  className="corner-logo"
+                  alt="logo"
                 />
-                <div className="name">Tract</div>
+                <span className="name">Tract</span>
               </div>
             </div>
             <Menu defaultSelectedKeys={["1"]} mode="inline">
@@ -85,7 +86,7 @@ function PageLayout() {
               </Menu.Item>
               <Menu.Item key="5" icon={<DollarOutlined />}>
                 <NavLink className="nav-item" to="/financials">
-                  Financials
+                  Expenses
                 </NavLink>
               </Menu.Item>
 

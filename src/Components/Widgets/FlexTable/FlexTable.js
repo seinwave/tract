@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Table } from "react-bootstrap";
 import "./Table.scss";
 import { DataContext } from "../../../App";
-import RowSwitcher from './RowSwitcher'
+import RowSwitcher from "./RowSwitcher";
 
 function FlexTable({ header, subhed, columns, role }) {
+  const [searchInput, setSearchInput] = useState("");
   return (
     <DataContext.Consumer>
       {(data) => (
         <div className="card">
+          {console.log("DATA:", data)}
           <div className="card-header">
             <h3>{header}</h3>
             <p className="table-subhed">{subhed}</p>
@@ -16,24 +18,31 @@ function FlexTable({ header, subhed, columns, role }) {
           <div className="card-body">
             <div className="table-function-row row">
               <div className="entry-modifier-col col">
-                <p>Show <input type="number"></input> entries</p>
+                <p>
+                  Show{" "}
+                  <input
+                    
+                    type="number"
+                  ></input>{" "}
+                  entries
+                </p>
               </div>
               <div className="search-bar-col col">
                 <p>
-                  Search: <input type="text"></input>
+                  Search: <input onChange={(e) => setSearchInput(e.target.value)} type="text"></input>
                 </p>
               </div>
             </div>
-            <Table responsive striped bordered hover>
+            <Table size="sm" responsive striped bordered hover>
               <thead>
                 <tr>
-                  {columns.map(c=> {
-                    return (<th>{c}</th>)
+                  {columns.map((c) => {
+                    return <th>{c}</th>;
                   })}
                 </tr>
               </thead>
               <tbody>
-                <RowSwitcher data={data} role={role}/>
+                <RowSwitcher search={searchInput} data={data[role]} role={role} />
               </tbody>
             </Table>
             <div className="table-footer-row row">

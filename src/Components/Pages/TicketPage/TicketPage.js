@@ -11,16 +11,21 @@ function TicketPage() {
         <FlexTable
           header="Ticket List"
           subhed="All the tickets in your database"
-          role="financial"
+          role="tickets"
           columns={[
             "ID",
-            "Amount",
-            "Creator",
-            "Created On",
+            "Title",
             "Description",
-            "Associated Tickets",
-            "Associated Projects",
-            "Approved?",
+            "Type",
+            "Status",
+            "Priority",
+            "Assignee",
+            "Due Date",
+            "Submitter",
+            "Created Date",
+            "Comments",
+            "Attachments",
+            "Expenses"
           ]}
         />
       </div>

@@ -31,15 +31,15 @@ exports[`snapshot testing renders as expected 1`] = `
             className="logo"
           >
             <img
-              alt="Clean UI"
-              className="mr-2"
-              src="src/images/logo192.png"
+              alt="logo"
+              className="corner-logo"
+              src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Chipotle_Mexican_Grill_logo.svg/1200px-Chipotle_Mexican_Grill_logo.svg.png"
             />
-            <div
+            <span
               className="name"
             >
               Tract
-            </div>
+            </span>
           </div>
         </div>
         <ul
@@ -255,7 +255,7 @@ exports[`snapshot testing renders as expected 1`] = `
                 href="/financials"
                 onClick={[Function]}
               >
-                Financials
+                Expenses
               </a>
             </span>
           </li>
