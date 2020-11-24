@@ -2,27 +2,25 @@ import React from "react";
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
 import {Row, Col} from 'antd'
 
-function ProjectPage() {
+function ClientsPage() {
   return (
     <div className="container page-container">
       <Row>
-        <h2>Projects</h2>
+        <h2>Clients</h2>
       </Row>
       <Row gutter={[32, 16]}>
         <Col span={24}>
           <FlexTable
-            header="Project List"
-            subhed="All the projects in your database"
-            role="projects"
+            header="Client List"
+            subhed="All the clients in your database"
+            role="clients"
             columns={[
               "ID",
               "Name",
-              "Description",
-              "Client",
-              "Type",
-              "Due Date",
-              "PM",
+              "Industry",
+              "Joined Date",
               "Tickets",
+              "Projects",
             ]}
           />
         </Col>
@@ -31,4 +29,4 @@ function ProjectPage() {
   );
 }
 
-export default ProjectPage;
+export default ClientsPage;

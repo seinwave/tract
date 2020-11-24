@@ -15,11 +15,10 @@ function TeamPage() {
             subhed="All the team members in your database"
             role="team"
             columns={[
-              "#",
+              "ID#",
               "Name",
-              "Email",
-              "Joined Date",
               "Role",
+              "Email",
               "Associated Tickets",
               "Associated Projects",
             ]}

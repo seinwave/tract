@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SideBar from "../SideBar/SideBar";
 import TopBar from "../TopBar/TopBar";
+import ClientPage from "../../Components/Pages/ClientsPage/ClientsPage";
 import FinancialPage from "../../Components/Pages/FinancialPage/FinancialPage";
 import TeamPage from "../../Components/Pages/TeamPage/TeamPage";
 import TicketPage from "../../Components/Pages/TicketPage/TicketPage";
@@ -21,6 +21,7 @@ import {
   TeamOutlined,
   BookOutlined,
   UserOutlined,
+  MehOutlined,
 } from "@ant-design/icons";
 
 import "./PageLayout.scss";
@@ -74,29 +75,34 @@ function PageLayout() {
                   Team
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="3" icon={<BookOutlined />}>
+              <Menu.Item key="3" icon={<MehOutlined />}>
+                <NavLink className="nav-item" to="/clients">
+                  Clients
+                </NavLink>
+              </Menu.Item>
+              <Menu.Item key="4" icon={<BookOutlined />}>
                 <NavLink className="nav-item" to="/projects">
                   Projects
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="4" icon={<InboxOutlined />}>
+              <Menu.Item key="5" icon={<InboxOutlined />}>
                 <NavLink className="nav-item" to="/tickets">
                   Tickets
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="5" icon={<DollarOutlined />}>
+              <Menu.Item key="6" icon={<DollarOutlined />}>
                 <NavLink className="nav-item" to="/financials">
                   Expenses
                 </NavLink>
               </Menu.Item>
 
               <div class="h-divider"></div>
-              <Menu.Item key="6" icon={<UserOutlined />}>
+              <Menu.Item key="7" icon={<UserOutlined />}>
                 <NavLink className="nav-item" to="/profile">
                   Profile
                 </NavLink>
               </Menu.Item>
-              <Menu.Item key="7" icon={<SettingOutlined />}>
+              <Menu.Item key="8" icon={<SettingOutlined />}>
                 <NavLink className="nav-item" to="/exit">
                   Sign Out
                 </NavLink>
@@ -114,6 +120,9 @@ function PageLayout() {
                 </Route>
                 <Route path="/home">
                   <Dashboard />
+                </Route>
+                <Route path="/clients">
+                  <ClientPage />
                 </Route>
                 <Route path="/projects">
                   <ProjectPage />

@@ -17,15 +17,11 @@ function TicketPage() {
             "Title",
             "Description",
             "Type",
-            "Status",
             "Priority",
-            "Assignee",
+            "Status",
             "Due Date",
-            "Submitter",
-            "Created Date",
-            "Comments",
-            "Attachments",
-            "Expenses"
+            "Assignee",
+            "MORE INFO"
           ]}
         />
       </div>

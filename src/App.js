@@ -13,35 +13,41 @@ function App() {
   const [team, setTeam] = useState({});
   const [projects, setProjects] = useState({});
   const [tickets, setTickets] = useState({});
-
+  const [clients, setClients] = useState({})
 
   useEffect(() => {
-    fetchData("http://localhost:3001/expenses").then((resp) =>
+    fetchData("http://localhost:3001/admin_expense_view").then((resp) =>
       setExpenses(resp.data)
     );
   }, []);
 
   useEffect(() => {
-    fetchData("http://localhost:3001/users").then((resp) =>
+    fetchData("http://localhost:3001/admin_users_view").then((resp) =>
       setTeam(resp.data)
     );
   }, []);
 
   useEffect(() => {
-    fetchData("http://localhost:3001/projects").then((resp) =>
+    fetchData("http://localhost:3001/admin_projects_view").then((resp) =>
       setProjects(resp.data)
     );
   }, []);
 
   useEffect(() => {
-    fetchData("http://localhost:3001/tickets").then((resp) =>
+    fetchData("http://localhost:3001/admin_tickets_view").then((resp) =>
       setTickets(resp.data)
+    );
+  }, []);
+
+  useEffect(() => {
+    fetchData("http://localhost:3001/admin_clients_view").then((resp) =>
+      setClients(resp.data)
     );
   }, []);
 
   return (
     <div>
-      <DataContext.Provider value={{expenses, team, projects, tickets}}>
+      <DataContext.Provider value={{expenses, team, projects, tickets, clients}}>
         <PageLayout />
       </DataContext.Provider>
     </div>

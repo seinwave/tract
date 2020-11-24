@@ -17,11 +17,11 @@ function Financial() {
             columns={[
               "ID",
               "Amount",
-              "Creator",
-              "Created On",
               "Description",
+              "Vendor",
+              "Created On",
+              "Creator",
               "Associated Tickets",
-              "Associated Projects",
               "Approved?",
             ]}
           />
