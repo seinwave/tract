@@ -17,6 +17,8 @@ function ClientsPage() {
             columns={[
               "ID",
               "Name",
+              "Contact Name",
+              "Contact Email",
               "Industry",
               "Joined Date",
               "Tickets",

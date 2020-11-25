@@ -1,6 +1,10 @@
 import React from "react";
+import {Button} from 'antd';
 
-function RowSwitcher({ data, role, search }) {
+function RowSwitcher({ deleter, data, role, search }) {
+
+  console.log(deleter);
+
   switch (role) {
     default:
       return (
@@ -53,6 +57,8 @@ function RowSwitcher({ data, role, search }) {
                 d.client_id.toString().toLowerCase().includes(search.toLowerCase()) ||
                 real_client_joined_date.toLowerCase().includes(search.toLowerCase()) ||
                 d.client_name.toString().toLowerCase().includes(search.toLowerCase()) ||
+                d.client_contact_name.toString().toLowerCase().includes(search.toLowerCase()) ||
+                d.client_contact_email.toString().toLowerCase().includes(search.toLowerCase()) ||
                 d.ticket_title.toLowerCase().includes(search.toLowerCase()) ||
                 d.client_industry.toString().toLowerCase().includes(search.toLowerCase()) ||
                 d.project_name.toString().toLowerCase().includes(search.toLowerCase())
@@ -63,10 +69,13 @@ function RowSwitcher({ data, role, search }) {
                 <tr>
                   <td>{d.client_id}</td>
                   <td>{d.client_name}</td>
+                  <td>{d.client_contact_name}</td>
+                  <td>{d.client_contact_email}</td>
                   <td>{d.client_industry}</td>
                   <td>{`${client_joined_date.getMonth()} ${client_joined_date.getDate()}, ${client_joined_date.getFullYear()}`}</td>
                   <td>{d.ticket_title}</td>
                   <td>{d.project_name}</td>
+                  <td><Button onClick={() => deleter('clients', d.client_id)} danger>Delete</Button></td>
                 </tr>
               );
             });

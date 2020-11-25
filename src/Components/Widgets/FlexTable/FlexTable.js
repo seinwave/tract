@@ -42,7 +42,7 @@ function FlexTable({ header, subhed, columns, role }) {
                 </tr>
               </thead>
               <tbody>
-                <RowSwitcher search={searchInput} data={data[role]} role={role} />
+                <RowSwitcher search={searchInput} deleter={data.deleter} data={data[role]} role={role} />
               </tbody>
             </Table>
             <div className="table-footer-row row">
