@@ -26,10 +26,17 @@ function App() {
     clients: []
   });
 
+  // all purpose deleter -- the regex removes the plural 's' from tables' names in 
+  // the db
+  // because all the db tables share the convention eg --> "tickets" && "ticket_id"
   const deleter = (table, id) => {
-    deleteData(table,id).then(resp => 
-      setState(state => ({...state})))
-  }
+    deleteData(table, id).then((resp) => console.log(resp));
+    console.log(table)
+    setState((state) => ({
+      ...state,
+      [table]: state[table].filter((i) => i[`${table.toString().replace(/s$/, '')}_id`] !== id),
+    }));
+  };
 
   useEffect(() => {
     fetchData("http://localhost:3001/admin_expense_view").then((resp) =>
@@ -51,12 +58,13 @@ function App() {
     fetchData("http://localhost:3001/admin_clients_view").then((resp) =>
     setState(state => ({...state, clients:resp.data}))
     );
-  }, []);
+  }, [setState]);
 
   const {expenses, team, projects, tickets, clients} = state;
 
   return (
     <div>
+      {console.log("STATE_AFTER:", state)}
       <DataContext.Provider
         value={{ expenses, team, projects, tickets, clients, deleter }}
       >

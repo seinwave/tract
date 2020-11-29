@@ -66,7 +66,7 @@ function PageLayout() {
             </div>
             <Menu defaultSelectedKeys={["1"]} mode="inline">
               <Menu.Item key="1" icon={<PieChartOutlined />}>
-                <NavLink className="nav-item" to="/home">
+                <NavLink className="nav-item" to="/">
                   Home
                 </NavLink>
               </Menu.Item>
@@ -118,9 +118,6 @@ function PageLayout() {
                 <Route path="/financials">
                   <FinancialPage />
                 </Route>
-                <Route path="/home">
-                  <Dashboard />
-                </Route>
                 <Route path="/clients">
                   <ClientPage />
                 </Route>
@@ -132,6 +129,9 @@ function PageLayout() {
                 </Route>
                 <Route path="/tickets">
                   <TicketPage />
+                </Route>
+                <Route path="/">
+                  <Dashboard />
                 </Route>
               </Switch>
             </Content>
