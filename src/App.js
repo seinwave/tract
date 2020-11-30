@@ -69,10 +69,10 @@ function App() {
 
   return (
     <div>
-      {console.log("STATE_AFTER:", state)}
       <DataContext.Provider
         value={{ modler, modal, expenses, team, projects, tickets, clients, deleter }}
       >
+        <p>ham</p>
         <PageLayout />
       </DataContext.Provider>
     </div>
