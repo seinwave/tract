@@ -1,13 +1,20 @@
 import React from "react";
+import { Col, Row } from "antd";
+import { Button} from 'react-bootstrap';
+import '../Page.scss';
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
-import {Row, Col} from 'antd'
 
 function ClientsPage() {
   return (
     <div className="container page-container">
-      <Row>
-        <h2>Clients</h2>
-      </Row>
+      <div className="row heading-row dashboard-heading-row">
+        <Col>
+          <h2>Clients</h2>
+        </Col>
+        <Col>
+          <Button id="new-button">New Client+</Button>
+        </Col>
+      </div>
       <Row gutter={[32, 16]}>
         <Col span={24}>
           <FlexTable

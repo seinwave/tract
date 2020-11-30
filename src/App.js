@@ -9,8 +9,6 @@ const fetchData = async (url) => {
 };
 
 const deleteData = async (table, id) => {
-  //todo: how to get updated table in the front-end
-  console.log(table, id);
   return await axios.put("http://localhost:3001/delete", {
     table: table,
     id: id,
@@ -23,15 +21,22 @@ function App() {
     team: [],
     projects: [],
     tickets: [],
-    clients: []
+    clients: [],
+    modal: false,
   });
+
+  const modler = () => {
+    setState((state) => ({
+      ...state,
+      modal: !modal
+    }))
+  }
 
   // all purpose deleter -- the regex removes the plural 's' from tables' names in 
   // the db
   // because all the db tables share the convention eg --> "tickets" && "ticket_id"
   const deleter = (table, id) => {
     deleteData(table, id).then((resp) => console.log(resp));
-    console.log(table)
     setState((state) => ({
       ...state,
       [table]: state[table].filter((i) => i[`${table.toString().replace(/s$/, '')}_id`] !== id),
@@ -60,13 +65,13 @@ function App() {
     );
   }, [setState]);
 
-  const {expenses, team, projects, tickets, clients} = state;
+  const {expenses, team, projects, tickets, clients, modal} = state;
 
   return (
     <div>
       {console.log("STATE_AFTER:", state)}
       <DataContext.Provider
-        value={{ expenses, team, projects, tickets, clients, deleter }}
+        value={{ modler, modal, expenses, team, projects, tickets, clients, deleter }}
       >
         <PageLayout />
       </DataContext.Provider>

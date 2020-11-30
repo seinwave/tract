@@ -1,0 +1,21 @@
+.heading-row{
+    margin-top: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+#new-button{
+    color: #08b808;
+    background: #fff;
+    border: solid .5px #08b808;
+}
+
+#new-button:hover{
+    color:white;
+    border: solid .5px #08b808;
+    background-color: #08b808;
+}
+
+.ticket-button-col{
+    padding: 8px 16px;
+}
