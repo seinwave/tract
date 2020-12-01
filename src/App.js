@@ -15,6 +15,13 @@ const deleteData = async (table, id) => {
   });
 };
 
+const createRow = async (table, submission) => {
+  return await axios.put("http://localhost:3001/insert", {
+    table: table,
+    submission: submission
+  });
+}
+
 function App() {
   const [state, setState] = useState({
     expenses: [],
@@ -23,6 +30,7 @@ function App() {
     tickets: [],
     clients: [],
     modal: false,
+    submission: {}
   });
 
   const modler = () => {
@@ -30,6 +38,21 @@ function App() {
       ...state,
       modal: !modal
     }))
+  }
+
+  const onInputChange = (field, value) => {
+    setState((state) => ({
+      ...state,
+        submission: {
+          ...state.submission,
+          [field]:value,
+        } 
+    }))
+  }
+
+  const submitRow = (table, submission) => {
+    createRow(table, submission)
+    return modler()
   }
 
   // all purpose deleter -- the regex removes the plural 's' from tables' names in 
@@ -65,12 +88,12 @@ function App() {
     );
   }, [setState]);
 
-  const {expenses, team, projects, tickets, clients, modal} = state;
+  const {expenses, team, projects, tickets, clients, modal, submission} = state;
 
   return (
     <div>
       <DataContext.Provider
-        value={{ modler, modal, expenses, team, projects, tickets, clients, deleter }}
+        value={{modal, expenses, team, projects, tickets, clients, submission, deleter, onInputChange, modler, submitRow  }}
       >
         <PageLayout />
       </DataContext.Provider>

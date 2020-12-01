@@ -1,14 +1,12 @@
 import React from "react";
+import ReactDOM from 'react-dom';
 import { App, DataContext, fetchData } from "./App";
 import axios from "axios";
-import renderer from "react-test-renderer";
 import {act} from 'react-dom/test-utils'
 import { render, fireEvent, waitFor, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 jest.mock("axios");
-
-const mockFetch = jest.fn()
 
 describe("state and context tests", () => {
   test("DataContext exists", () => {
@@ -23,10 +21,5 @@ describe("state and context tests", () => {
   });
 });
 
-// describe("snapshot testing", () => {
-//   it("renders as expected", async () => {
-//     await waitFor(() => screen.getByText('Tickets by'))
-//     const tree = await act(() => renderer.create(<App />).toJSON());
-//     expect(tree).toMatchSnapshot();
-//   });
-// });
+
+

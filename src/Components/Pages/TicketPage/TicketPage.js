@@ -7,12 +7,11 @@ import "../Page.scss";
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
 
 function TicketPage() {
+  let users = []; 
   return (
     <DataContext.Consumer>
       {(data) => (
         <div className="container page-container">
-          {console.log("TICKET DATA:", data)}
-          {console.log("MODAL:", data.modal)}
           <div className="row heading-row dashboard-heading-row">
             <Col>
               <h2>Tickets</h2>
@@ -26,6 +25,7 @@ function TicketPage() {
           <div className="row content-row financial-row">
             {data.modal ? (
               <>
+                {data.team.map(u => users.push([u.user_full_name, u.user_id]))}
                 <FlexTable
                   header="Ticket List"
                   subhed="All the tickets in your database"
@@ -41,7 +41,19 @@ function TicketPage() {
                     "Assignee",
                   ]}
                 />
-                <Modal />
+                <Modal
+                  title = "ticket"
+                  role = "tickets"
+                  fields={[
+                    ["Title", "input"],
+                    ["Description", "input"],
+                    ["Priority", "select", ["high", "medium", "low"]],
+                    ["Status", "select", ["open", "assigned", "closed"]],
+                    ["Type", "select", ["ux", "bugs/errors", "design", "data"]],
+                    ["Target_Resolution_Date", "date"],
+                    ["Assignee", "select", users],
+                  ]}
+                />
               </>
             ) : (
               <FlexTable
