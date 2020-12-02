@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "antd";
-import { Button} from 'react-bootstrap';
-import '../Page.scss';
+import { Button } from "react-bootstrap";
+import "../Page.scss";
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
 
 function TeamPage() {

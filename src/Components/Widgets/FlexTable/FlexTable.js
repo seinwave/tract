@@ -19,17 +19,16 @@ function FlexTable({ header, subhed, columns, role }) {
             <div className="table-function-row row">
               <div className="entry-modifier-col col">
                 <p>
-                  Show{" "}
-                  <input
-                    
-                    type="number"
-                  ></input>{" "}
-                  entries
+                  Show <input type="number"></input> entries
                 </p>
               </div>
               <div className="search-bar-col col">
                 <p>
-                  Search: <input onChange={(e) => setSearchInput(e.target.value)} type="text"></input>
+                  Search:{" "}
+                  <input
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    type="text"
+                  ></input>
                 </p>
               </div>
             </div>
@@ -42,7 +41,12 @@ function FlexTable({ header, subhed, columns, role }) {
                 </tr>
               </thead>
               <tbody>
-                <RowSwitcher search={searchInput} deleter={data.deleter} data={data[role]} role={role} />
+                <RowSwitcher
+                  search={searchInput}
+                  deleter={data.deleter}
+                  data={data[role]}
+                  role={role}
+                />
               </tbody>
             </Table>
             <div className="table-footer-row row">

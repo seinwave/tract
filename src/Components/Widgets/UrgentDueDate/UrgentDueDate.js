@@ -1,6 +1,6 @@
 import React from "react";
 
-const UrgentDueDate = ({header}) => {
+const UrgentDueDate = ({ header }) => {
   return (
     <div className="card">
       <h3 className="card-header">{header}</h3>

@@ -27,13 +27,12 @@ const TicketsDonut = ({ header }) => {
     <div className="card">
       <h3 className="card-header">{header}</h3>
       <div className="card-body">
-       
-            <Doughnut
-              data={data}
-              width={250}
-              height={100}
-              options={{ maintainAspectRatio: true }}
-            />
+        <Doughnut
+          data={data}
+          width={250}
+          height={100}
+          options={{ maintainAspectRatio: true }}
+        />
       </div>
     </div>
   );

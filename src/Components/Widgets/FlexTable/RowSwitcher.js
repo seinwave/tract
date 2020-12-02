@@ -193,7 +193,7 @@ function RowSwitcher({ deleter, data, role, search }) {
               <td>{`${ticket_due_date.getMonth()} ${ticket_due_date.getDate()}, ${ticket_due_date.getFullYear()}`}</td>
               <td>{d.user_full_name}</td>
               <td>
-              <Col className="ticket-button-col">
+                <Col className="ticket-button-col">
                   <Button type="primary">Modify</Button>
                 </Col>
                 <Col className="ticket-button-col">

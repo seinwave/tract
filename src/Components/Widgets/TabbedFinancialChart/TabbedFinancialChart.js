@@ -6,7 +6,7 @@ import MonthlyNetChart from "../MonthlyNetChart/MonthlyNetChart";
 import MonthlyExpensesChart from "../MonthlyExpensesChart/MonthlyExpensesChart";
 import { DataContext } from "../../../App";
 
-const TabbedFinancialChart = ({header}) => {
+const TabbedFinancialChart = ({ header }) => {
   return (
     <DataContext.Consumer>
       {(data) => (
@@ -26,18 +26,20 @@ const TabbedFinancialChart = ({header}) => {
                 </Tab>
                 <Tab eventKey="expenses" title="Expenses">
                   <div>
-                    <MonthlyExpensesChart 
-                    gross={data[0].amount}
-                    name={data[0].vendor}
-                    data={data}/>
+                    <MonthlyExpensesChart
+                      gross={data[0].amount}
+                      name={data[0].vendor}
+                      data={data}
+                    />
                   </div>
                 </Tab>
                 <Tab eventKey="net" title="Net">
                   <div>
-                    <MonthlyNetChart 
-                    gross={data[0].amount}
-                    name={data[0].vendor}
-                    data={data}/>
+                    <MonthlyNetChart
+                      gross={data[0].amount}
+                      name={data[0].vendor}
+                      data={data}
+                    />
                   </div>
                 </Tab>
               </Tabs>

@@ -4,6 +4,7 @@ import axios from "axios";
 import "./App.scss";
 
 const DataContext = React.createContext();
+
 const fetchData = async (url) => {
   return await axios.get(url);
 };
@@ -16,11 +17,11 @@ const deleteData = async (table, id) => {
 };
 
 const createRow = async (table, submission) => {
-  return await axios.put("http://localhost:3001/insert", {
+  await axios.put("http://localhost:3001/insert", {
     table: table,
-    submission: submission
+    submission: submission,
   });
-}
+};
 
 function App() {
   const [state, setState] = useState({
@@ -30,70 +31,100 @@ function App() {
     tickets: [],
     clients: [],
     modal: false,
-    submission: {}
+    submission: {},
   });
 
   const modler = () => {
     setState((state) => ({
       ...state,
-      modal: !modal
-    }))
-  }
+      modal: !modal,
+    }));
+  };
 
   const onInputChange = (field, value) => {
     setState((state) => ({
       ...state,
-        submission: {
-          ...state.submission,
-          [field]:value,
-        } 
-    }))
-  }
+      submission: {
+        ...state.submission,
+        [field]: value,
+      },
+    }));
+  };
 
-  const submitRow = (table, submission) => {
-    createRow(table, submission)
-    return modler()
-  }
+  const submitRow = async (table, submission, latestId) => {
+    // create row on backend
+    await createRow(table, submission);
 
-  // all purpose deleter -- the regex removes the plural 's' from tables' names in 
+    // close the modal submission window
+    modler();
+
+    // refresh the frontend content
+    return await fetchData(
+      `http://localhost:3001/admin_${table}_view`
+    ).then((resp) => setState((state) => ({ ...state, [table]: resp.data })));
+  };
+
+  // all purpose deleter -- the regex removes the plural 's' from tables' names in
   // the db
   // because all the db tables share the convention eg --> "tickets" && "ticket_id"
   const deleter = (table, id) => {
     deleteData(table, id).then((resp) => console.log(resp));
     setState((state) => ({
       ...state,
-      [table]: state[table].filter((i) => i[`${table.toString().replace(/s$/, '')}_id`] !== id),
+      [table]: state[table].filter(
+        (i) => i[`${table.toString().replace(/s$/, "")}_id`] !== id
+      ),
     }));
   };
 
   useEffect(() => {
     fetchData("http://localhost:3001/admin_expense_view").then((resp) =>
-      setState(state => ({...state, expenses:resp.data}))
+      setState((state) => ({ ...state, expenses: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_users_view").then((resp) =>
-    setState(state => ({...state, team:resp.data}))
+      setState((state) => ({ ...state, team: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_tickets_view").then((resp) =>
-    setState(state => ({...state, tickets:resp.data}))
+      setState((state) => ({ ...state, tickets: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_projects_view").then((resp) =>
-    setState(state => ({...state, projects:resp.data}))
+      setState((state) => ({ ...state, projects: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_clients_view").then((resp) =>
-    setState(state => ({...state, clients:resp.data}))
+      setState((state) => ({ ...state, clients: resp.data }))
     );
   }, [setState]);
 
-  const {expenses, team, projects, tickets, clients, modal, submission} = state;
+  const {
+    expenses,
+    team,
+    projects,
+    tickets,
+    clients,
+    modal,
+    submission,
+  } = state;
 
   return (
     <div>
       <DataContext.Provider
-        value={{modal, expenses, team, projects, tickets, clients, submission, deleter, onInputChange, modler, submitRow  }}
+        value={{
+          modal,
+          expenses,
+          team,
+          projects,
+          tickets,
+          clients,
+          submission,
+          deleter,
+          onInputChange,
+          modler,
+          submitRow,
+        }}
       >
         <PageLayout />
       </DataContext.Provider>
