@@ -51,7 +51,7 @@ function App() {
     }));
   };
 
-  const submitRow = async (table, submission, latestId) => {
+  const submitRow = async (table, submission) => {
     // create row on backend
     await createRow(table, submission);
 

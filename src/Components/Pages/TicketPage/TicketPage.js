@@ -8,8 +8,6 @@ import FlexTable from "../../Widgets/FlexTable/FlexTable";
 
 function TicketPage() {
   let users = [];
-  let ids = [];
-  let latestId;
   return (
     <DataContext.Consumer>
       {(data) => (
@@ -30,8 +28,6 @@ function TicketPage() {
                 {data.team.map((u) =>
                   users.push([u.user_full_name, u.user_id])
                 )}
-                {data.tickets.map((t) => ids.push(t.ticket_id))}
-                {(latestId = Math.max(...ids))}
                 <FlexTable
                   header="Ticket List"
                   subhed="All the tickets in your database"
@@ -50,7 +46,6 @@ function TicketPage() {
                 <Modal
                   title="ticket"
                   role="tickets"
-                  latestId={latestId}
                   fields={[
                     ["Title", "input"],
                     ["Description", "input"],

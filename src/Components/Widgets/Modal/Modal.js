@@ -3,13 +3,12 @@ import { DataContext } from "../../../App";
 import { Button } from "react-bootstrap";
 import "./Modal.scss";
 
-function Modal({ latestId, role, title, fields }) {
+function Modal({ role, title, fields }) {
   return (
     <DataContext.Consumer>
       {(data) => (
         <div className="my-modal">
           {console.log("SUBMISSION DATA", data)}
-          {console.log("LATEST ID", latestId)}
           <div className="card">
             <div className="modal-main">
               <div className="card-header">
@@ -30,7 +29,10 @@ function Modal({ latestId, role, title, fields }) {
                           <option value="">-</option>
                           {f[2].map((o) => {
                             return o.length === 2 ? (
-                              <option value={o[1]}>{o}</option>
+                              <option value={o[1]}>
+                                {o[0]}
+                                {console.log("O[1] is...", o[1])}
+                              </option>
                             ) : (
                               <option value={o}>{o}</option>
                             );
@@ -51,9 +53,7 @@ function Modal({ latestId, role, title, fields }) {
                   );
                 })}
               </div>
-              <Button
-                onClick={() => data.submitRow(role, data.submission, latestId)}
-              >
+              <Button onClick={() => data.submitRow(role, data.submission)}>
                 Submit
               </Button>
             </div>

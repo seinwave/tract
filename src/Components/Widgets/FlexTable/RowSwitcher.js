@@ -233,7 +233,6 @@ function RowSwitcher({ deleter, data, role, search }) {
           );
         })
         .map((d) => {
-          console.log(d);
           return (
             <tr>
               <td>{d.user_id}</td>
