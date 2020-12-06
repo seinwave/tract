@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DataContext } from "../../../App";
 import { Button } from "react-bootstrap";
 import "./Modal.scss";
@@ -29,10 +29,7 @@ function Modal({ role, title, fields }) {
                           <option value="">-</option>
                           {f[2].map((o) => {
                             return o.length === 2 ? (
-                              <option value={o[1]}>
-                                {o[0]}
-                                {console.log("O[1] is...", o[1])}
-                              </option>
+                              <option value={o[1]}>{o[0]}</option>
                             ) : (
                               <option value={o}>{o}</option>
                             );

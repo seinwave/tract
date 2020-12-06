@@ -10,6 +10,7 @@ const fetchData = async (url) => {
 };
 
 const deleteData = async (table, id) => {
+  console.log("DELETION ID", id);
   return await axios.put("http://localhost:3001/delete", {
     table: table,
     id: id,
@@ -17,6 +18,7 @@ const deleteData = async (table, id) => {
 };
 
 const createRow = async (table, submission) => {
+  console.log("ABOUT TO SUBMIT:", submission);
   await axios.put("http://localhost:3001/insert", {
     table: table,
     submission: submission,
@@ -26,7 +28,7 @@ const createRow = async (table, submission) => {
 function App() {
   const [state, setState] = useState({
     expenses: [],
-    team: [],
+    users: [],
     projects: [],
     tickets: [],
     clients: [],
@@ -51,10 +53,20 @@ function App() {
     }));
   };
 
+  const submissionClearer = () => {
+    setState((state) => ({
+      ...state,
+      submission: {},
+    }));
+    console.log("SUBMISSION CLEARED");
+    console.log(state.submission);
+  };
+
   const submitRow = async (table, submission) => {
     // create row on backend
     await createRow(table, submission);
 
+    console.log(table, "IS SUBMISSION TABLE");
     // close the modal submission window
     modler();
 
@@ -78,12 +90,12 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData("http://localhost:3001/admin_expense_view").then((resp) =>
+    fetchData("http://localhost:3001/admin_expenses_view").then((resp) =>
       setState((state) => ({ ...state, expenses: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_users_view").then((resp) =>
-      setState((state) => ({ ...state, team: resp.data }))
+      setState((state) => ({ ...state, users: resp.data }))
     );
 
     fetchData("http://localhost:3001/admin_tickets_view").then((resp) =>
@@ -101,7 +113,7 @@ function App() {
 
   const {
     expenses,
-    team,
+    users,
     projects,
     tickets,
     clients,
@@ -115,7 +127,7 @@ function App() {
         value={{
           modal,
           expenses,
-          team,
+          users,
           projects,
           tickets,
           clients,
@@ -126,7 +138,7 @@ function App() {
           submitRow,
         }}
       >
-        <PageLayout />
+        <PageLayout submissionClearer={submissionClearer} />
       </DataContext.Provider>
     </div>
   );

@@ -29,7 +29,7 @@ import "antd/dist/antd.css";
 
 const { Header, Footer, Sider, Content } = Layout;
 
-function PageLayout() {
+function PageLayout({ submissionClearer }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const onCollapse = () => {
@@ -116,19 +116,19 @@ function PageLayout() {
             <Content>
               <Switch>
                 <Route path="/financials">
-                  <FinancialPage />
+                  <FinancialPage submissionClearer={submissionClearer} />
                 </Route>
                 <Route path="/clients">
-                  <ClientPage />
+                  <ClientPage submissionClearer={submissionClearer} />
                 </Route>
                 <Route path="/projects">
-                  <ProjectPage />
+                  <ProjectPage submissionClearer={submissionClearer} />
                 </Route>
                 <Route path="/team">
-                  <TeamPage />
+                  <TeamPage submissionClearer={submissionClearer} />
                 </Route>
                 <Route path="/tickets">
-                  <TicketPage />
+                  <TicketPage submissionClearer={submissionClearer} />
                 </Route>
                 <Route path="/">
                   <Dashboard />

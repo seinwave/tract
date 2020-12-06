@@ -9,7 +9,7 @@ function FlexTable({ header, subhed, columns, role }) {
   return (
     <DataContext.Consumer>
       {(data) => (
-        <div className="card">
+        <div className="card table-card">
           <div className="card-header">
             <h3>{header}</h3>
             <p className="table-subhed">{subhed}</p>

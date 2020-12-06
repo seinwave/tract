@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col } from "antd";
 import { Button } from "react-bootstrap";
 import { DataContext } from "../../../App";
@@ -6,8 +6,13 @@ import Modal from "../../Widgets/Modal/Modal";
 import "../Page.scss";
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
 
-function TicketPage() {
+function TicketPage({ submissionClearer }) {
   let users = [];
+
+  useEffect(() => {
+    submissionClearer();
+  }, []);
+
   return (
     <DataContext.Consumer>
       {(data) => (
@@ -25,7 +30,7 @@ function TicketPage() {
           <div className="row content-row financial-row">
             {data.modal ? (
               <>
-                {data.team.map((u) =>
+                {data.users.map((u) =>
                   users.push([u.user_full_name, u.user_id])
                 )}
                 <FlexTable

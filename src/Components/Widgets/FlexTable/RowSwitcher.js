@@ -208,7 +208,7 @@ function RowSwitcher({ deleter, data, role, search }) {
             </tr>
           );
         });
-    case "team":
+    case "users":
       return data
         .filter((d) => {
           return (
@@ -246,7 +246,7 @@ function RowSwitcher({ deleter, data, role, search }) {
                   <Button type="primary">Modify</Button>
                 </Col>
                 <Col>
-                  <Button onClick={() => deleter("users", d.client_id)} danger>
+                  <Button onClick={() => deleter("users", d.user_id)} danger>
                     Delete
                   </Button>
                 </Col>
@@ -316,7 +316,7 @@ function RowSwitcher({ deleter, data, role, search }) {
                 </Col>
                 <Col>
                   <Button
-                    onClick={() => deleter("expenses", d.client_id)}
+                    onClick={() => deleter("expenses", d.expense_id)}
                     danger
                   >
                     Delete

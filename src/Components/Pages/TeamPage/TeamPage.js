@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row } from "antd";
 import { Button } from "react-bootstrap";
 import { DataContext } from "../../../App";
@@ -6,9 +6,14 @@ import Modal from "../../Widgets/Modal/Modal";
 import "../Page.scss";
 import FlexTable from "../../Widgets/FlexTable/FlexTable";
 
-function TeamPage() {
+function TeamPage({ submissionClearer }) {
+  useEffect(() => {
+    submissionClearer();
+  }, []);
+
   let tickets = [];
   let projects = [];
+
   return (
     <DataContext.Consumer>
       {(data) => (
@@ -33,13 +38,10 @@ function TeamPage() {
                   {data.projects.map((p) =>
                     projects.push([p.project_name, p.project_id])
                   )}
-
-                  {console.log("TICKETS", tickets)}
-                  {console.log("PROJECTS", projects)}
                   <FlexTable
                     header="Team List"
                     subhed="All the team members in your database"
-                    role="team"
+                    role="users"
                     columns={[
                       "ID#",
                       "Name",
@@ -65,14 +67,14 @@ function TeamPage() {
                 <FlexTable
                   header="Team List"
                   subhed="All the team members in your database"
-                  role="team"
+                  role="users"
                   columns={[
                     "ID#",
                     "Name",
                     "Role",
                     "Email",
-                    "Associated Tickets",
                     "Associated Projects",
+                    "Associated Tickets",
                   ]}
                 />
               )}
